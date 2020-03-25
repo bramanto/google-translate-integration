@@ -3,7 +3,10 @@ This source code has been implemented on My Project. Thank you very much to the 
 
 ### Sample Page
 **Content in Indonesian**
+
 ![Content in Indonesian](assets/img/example_in.png)
 
+
 **Content in English**
+
 ![Content in English](assets/img/example_en.png)
