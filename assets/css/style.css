@@ -1,0 +1,31 @@
+body{
+    margin: 0 auto;
+    padding: 0px 10px;
+    top: 0px !important;
+}
+
+ul.translation-icons{
+    margin: 0px;
+    padding: 0px;
+}
+ul.translation-icons li.translate{
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.goog-te-gadget-icon {
+    display:none;
+}
+.goog-te-gadget-simple a {
+    text-decoration: none !important;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+#goog-gt-tt{
+    display: none !important;
+}
+#google_translate_element{
+    display: none;
+}

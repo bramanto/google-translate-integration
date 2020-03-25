@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>.: Google Translate Integration :.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <ul class="translation-icons">
+        <li class="translate">
+            <a href="#googtrans(en|id)" class="indonesian" data-lang="Indonesian">
+                <img src="assets/img/in.gif"/>&nbsp;IND
+            </a>
+        </li>
+        <li class="translate">
+            <a href="#googtrans(id|en)" class="english" data-lang="English">
+                <img src="assets/img/en.gif"/>&nbsp;EN
+            </a>
+        </li>
+    </ul>
+
+    <hr>
+    
+    <p>Halo Dunia, Saya mau memperkenalkan diri. Nama saya Bramanto.</p>
+    
+    <div id="google_translate_element"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en', 
+                includedLanguages: 'en,id',
+                defaultLanguage: 'en',
+                multilanguagePage: true,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        (function() {
+          var googleTranslateScript = document.createElement('script');
+          googleTranslateScript.type = 'text/javascript';
+          googleTranslateScript.async = true;
+          googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( googleTranslateScript );
+        })();
+
+        // CLICK DESKTOP OR TAB DEVICE
+        $(document).on("click", "ul.translation-icons li.translate a",function() {
+            var lang = $(this).data('lang');
+            var $frame = $('.goog-te-menu-frame:first');
+            if (!$frame.length) {
+                alert("Error: Could not find Google translate frame.");
+                return false;
+            }
+            $('.goog-te-menu-frame:first').contents().find('.goog-te-menu2-item span.text').each(function(){
+                if($(this).html() == lang){
+                    $(this).click(); 
+                }
+            });
+            
+            return false;
+        });
+
+        // CLICK MOBILE DEVICE
+        $(document).on("touchstart", "ul.translation-icons li.translate a",function() {
+            var theLang = jQuery(this).attr('data-lang');
+            jQuery('.goog-te-combo').val(theLang);
+
+            window.location = jQuery(this).attr('href');
+            location.reload();
+        });
+    </script>
+</body>
+</html>
